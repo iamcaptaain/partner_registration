@@ -1,0 +1,49 @@
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<div class="bg-grey min-h-screen flex flex-col">
+    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+            <form #signUpForm="ngForm">
+            <h1 class="mb-8 text-3xl text-center">Registration</h1>
+            <input 
+                type="text"
+                class="block border border-grey-light w-full p-3 rounded mb-4"
+                name="fullname"
+                #name="ngModel"
+                [(ngModel)]="partnerService.selectedPartner.name"
+                placeholder="Full Name" />
+
+            <input 
+                type="tel"
+                class="block border border-grey-light w-full p-3 rounded mb-4"
+                name="contact"
+                #contact="ngModel"
+                [(ngModel)]="partnerService.selectedPartner.contact"
+                id="phone"
+                pattern="[0-9]{10}"
+                placeholder="Phone" />
+            
+            <input type="file"
+                id="image" name="image"
+                class="block border border-grey-light w-full p-3 rounded mb-4"
+                accept="image/png, image/jpeg, image/jpg">
+            <input 
+                type="password"
+                class="block border border-grey-light w-full p-3 rounded mb-4"
+                name="password"
+                placeholder="Password" />
+            <input 
+                type="password"
+                class="block border border-grey-light w-full p-3 rounded mb-4"
+                name="confirm_password"
+                placeholder="Confirm Password" />
+
+            <button
+                type="submit"
+                class="w-full text-center py-3 rounded bg-black text-white"
+            >Create Account</button>
+        </form>
+        <br>
+        <a style="float: right;" [routerLink]="['partner/login']">Admin Login</a>
+        </div>
+    </div>
+</div>
